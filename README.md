@@ -2,6 +2,10 @@
 
 Una semplice web app per caricare e visualizzare foto e video di eventi. **Deploy facile senza backend da gestire!**
 
+## 🌟 Demo Live
+
+Prova Snaply in azione: **[demo-snaply.vercel.app](https://demo-snaply.vercel.app)**
+
 ## ✨ Caratteristiche
 
 - 📤 Upload drag & drop di foto e video (fino a 100MB)
