@@ -54,7 +54,7 @@ const debouncedSyncToJSONBin = (mediaList: any[]) => {
       if (response.ok) {
         console.log('✅ Sync JSONBin completato in background!');
         // Aggiorna timestamp cache
-        localStorage.setItem('lovaloha-last-sync', Date.now().toString());
+        localStorage.setItem('Snaply-last-sync', Date.now().toString());
       } else {
         console.log('⚠️ Sync JSONBin fallito:', response.status);
       }
@@ -152,8 +152,8 @@ const MediaUpload: React.FC<MediaUploadProps> = ({ onUploadSuccess }) => {
           const formData = new FormData();
           formData.append('file', file);
           formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-          formData.append('folder', 'lovaloha-event');
-          formData.append('tags', 'lovaloha,event,' + new Date().toISOString().split('T')[0]);
+          formData.append('folder', 'Snaply');
+          formData.append('tags', 'Snaply,event,' + new Date().toISOString().split('T')[0]);
           
           // Upload a Cloudinary con feedback immediato
           console.log(`📤 Caricamento ${file.name}...`);
@@ -201,12 +201,12 @@ const MediaUpload: React.FC<MediaUploadProps> = ({ onUploadSuccess }) => {
 
       if (uploadedMedia.length > 0) {
         // 1. Aggiorna localStorage con nuovi file
-        const existingMedia = JSON.parse(localStorage.getItem('lovaloha-media') || '[]');
+        const existingMedia = JSON.parse(localStorage.getItem('Snaply-media') || '[]');
         const allMedia = [...uploadedMedia, ...existingMedia];
-        localStorage.setItem('lovaloha-media', JSON.stringify(allMedia));
+        localStorage.setItem('Snaply-media', JSON.stringify(allMedia));
         
         // 2. 🚀 AGGIORNA CACHE IMMEDIATAMENTE per mostrare i file subito!
-        localStorage.setItem('lovaloha-last-sync', Date.now().toString());
+        localStorage.setItem('Snaply-last-sync', Date.now().toString());
         console.log('✅ Cache aggiornata immediatamente - galleria mostrerà i nuovi file!');
         
         // 3. Sync JSONBin in background per altri dispositivi

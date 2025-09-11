@@ -40,14 +40,14 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ refreshTrigger }) => {
       
       // 🧠 CACHE INTELLIGENTE: controlla se la cache è "fresca"
       const CACHE_DURATION = 1 * 60 * 1000; // 1 minuto
-      const lastSync = localStorage.getItem('lovaloha-last-sync');
+      const lastSync = localStorage.getItem('Snaply-last-sync');
       const now = Date.now();
       
       // Se cache è fresca (< 2 minuti), usa localStorage
       if (lastSync && (now - parseInt(lastSync)) < CACHE_DURATION) {
         console.log('📱 Cache fresca: uso localStorage (nessuna chiamata API)');
         
-        const savedMedia = localStorage.getItem('lovaloha-media');
+        const savedMedia = localStorage.getItem('Snaply-media');
         if (savedMedia) {
           const media = JSON.parse(savedMedia) as MediaItem[];
           const sortedMedia = media.sort((a, b) => 
@@ -88,8 +88,8 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ refreshTrigger }) => {
               setMediaItems(sortedMedia);
 
               // Aggiorna cache + timestamp
-              localStorage.setItem('lovaloha-media', JSON.stringify(sortedMedia));
-              localStorage.setItem('lovaloha-last-sync', now.toString());
+              localStorage.setItem('Snaply-media', JSON.stringify(sortedMedia));
+              localStorage.setItem('Snaply-last-sync', now.toString());
 
               console.log('✅ Cache aggiornata - prossimi 2min useranno localStorage');
               return;
@@ -105,7 +105,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ refreshTrigger }) => {
       }
       
       // Fallback: localStorage anche se datato
-      const savedMedia = localStorage.getItem('lovaloha-media');
+      const savedMedia = localStorage.getItem('Snaply-media');
       if (savedMedia) {
         const media = JSON.parse(savedMedia) as MediaItem[];
         const sortedMedia = media.sort((a, b) => 
@@ -119,7 +119,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ refreshTrigger }) => {
       
     } catch (error) {
       console.error('Errore caricamento:', error);
-      const savedMedia = localStorage.getItem('lovaloha-media');
+      const savedMedia = localStorage.getItem('Snaply-media');
       setMediaItems(savedMedia ? JSON.parse(savedMedia) : []);
     } finally {
       setLoading(false);
@@ -136,7 +136,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ refreshTrigger }) => {
       setMediaItems(updatedItems);
       
       // Aggiorna localStorage
-      localStorage.setItem('lovaloha-media', JSON.stringify(updatedItems));
+      localStorage.setItem('Snaply-media', JSON.stringify(updatedItems));
       
       console.log(`File ${id} rimosso dalla galleria locale (rimane su Cloudinary)`);
     } catch (error) {
