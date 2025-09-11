@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 CSS Custom Properties per colori dinamici */
+:root {
+  --primary-color: #5b0822;
+  --primary-rgb: 91, 8, 34;
+}
+
+/* 🎨 Classi utility personalizzate per colori dinamici */
+@layer utilities {
+  .text-primary { color: var(--primary-color); }
+  .text-primary-70 { color: rgba(var(--primary-rgb), 0.7); }
+  .text-primary-80 { color: rgba(var(--primary-rgb), 0.8); }
+  .text-primary-60 { color: rgba(var(--primary-rgb), 0.6); }
+  
+  .bg-primary { background-color: var(--primary-color); }
+  .bg-primary-5 { background-color: rgba(var(--primary-rgb), 0.05); }
+  .bg-primary-10 { background-color: rgba(var(--primary-rgb), 0.1); }
+  .bg-primary-20 { background-color: rgba(var(--primary-rgb), 0.2); }
+  .bg-primary-30 { background-color: rgba(var(--primary-rgb), 0.3); }
+  .bg-primary-90 { background-color: rgba(var(--primary-rgb), 0.9); }
+  
+  .border-primary { border-color: var(--primary-color); }
+  .border-primary-10 { border-color: rgba(var(--primary-rgb), 0.1); }
+  .border-primary-20 { border-color: rgba(var(--primary-rgb), 0.2); }
+  .border-primary-30 { border-color: rgba(var(--primary-rgb), 0.3); }
+  .border-primary-60 { border-color: rgba(var(--primary-rgb), 0.6); }
+  
+  .hover\\:bg-primary:hover { background-color: var(--primary-color); }
+  .hover\\:bg-primary-10:hover { background-color: rgba(var(--primary-rgb), 0.1); }
+  .hover\\:bg-primary-90:hover { background-color: rgba(var(--primary-rgb), 0.9); }
+  .hover\\:border-primary:hover { border-color: var(--primary-color); }
+  
+  /* Badge con contrasto ottimizzato */
+  .media-badge {
+    background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  
+  .from-primary-5 { --tw-gradient-from: rgba(var(--primary-rgb), 0.05); }
+  .from-primary-10 { --tw-gradient-from: rgba(var(--primary-rgb), 0.1); }
+  .from-primary-20 { --tw-gradient-from: rgba(var(--primary-rgb), 0.2); }
+  .to-primary-5 { --tw-gradient-to: rgba(var(--primary-rgb), 0.05); }
+  .to-primary-10 { --tw-gradient-to: rgba(var(--primary-rgb), 0.1); }
+  .to-primary-30 { --tw-gradient-to: rgba(var(--primary-rgb), 0.3); }
+}
+
+/* Design system essenziale */
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 351 94% 41%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 48 66% 53%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 48 66% 53%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 48 20% 88%;
+    --input: 0 0% 96%;
+    --ring: 351 94% 41%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 351 94% 55%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 48 66% 63%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 48 66% 63%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .card-elegant {
+    @apply bg-card border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:border-accent/30;
+  }
+  
+  .gallery-item {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+}
