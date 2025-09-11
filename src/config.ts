@@ -1,33 +1,30 @@
 // 🔧 CONFIGURAZIONE SNAPLY
 // ========================
-// Modifica questi valori per personalizzare la tua app
+// Configurazione basata su variabili d'ambiente
+// Copia .env.example come .env e personalizza i valori
 
 export const config = {
   // 🎨 PERSONALIZZAZIONE UI
   app: {
-    title: "Il Mio Evento Snaply",
-    subtitle: "Condividi foto e video! ✨", 
-    primaryColor: "#5b0822", // Bordeaux elegante
+    title: import.meta.env.VITE_APP_TITLE || "Il Mio Evento Snaply",
+    subtitle: import.meta.env.VITE_APP_SUBTITLE || "Condividi foto e video! ✨", 
+    primaryColor: import.meta.env.VITE_APP_PRIMARY_COLOR || "#1e40af",
   },
 
   // ☁️ CLOUDINARY - Storage per foto e video
-  // 1. Registrati su https://cloudinary.com (gratis fino a 25GB)
-  // 2. Dashboard → copia il "Cloud Name" 
-  // 3. Settings → Upload → Upload Presets → Crea preset "Unsigned"
+  // Configura le variabili VITE_CLOUDINARY_* nel file .env
   cloudinary: {
-    cloudName: "your_cloud_name_here",
-    uploadPreset: "snaply_upload_preset",
+    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "",
+    uploadPreset: import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "",
   },
 
   // 📦 JSONBIN - Database per sincronizzazione (OPZIONALE)
-  // 1. Registrati su https://jsonbin.io (opzionale)
-  // 2. Crea bin con: {"media": []}
-  // 3. Copia ID, Master Key, Access Key
+  // Configura le variabili VITE_JSONBIN_* nel file .env
   // NOTA: Se lasci vuoto, usa solo localStorage (funziona comunque!)
   jsonbin: {
-    id: "", // Lascia vuoto per disabilitare
-    masterKey: "",
-    accessKey: "",
+    id: import.meta.env.VITE_JSONBIN_ID || "",
+    masterKey: import.meta.env.VITE_JSONBIN_MASTER_KEY || "",
+    accessKey: import.meta.env.VITE_JSONBIN_ACCESS_KEY || "",
   },
 } as const;
 
