@@ -5,6 +5,15 @@ Una semplice web app per caricare e visualizzare foto e video di eventi. **Deplo
 ## 🌟 Demo Live
 
 Prova Snaply in azione: **[demo-snaply.vercel.app](https://demo-snaply.vercel.app)**
+>
+> **English** — Snaply is a drop-in photo & video gallery for events. Guests upload from their
+> phone (drag & drop, up to 100 MB) straight to Cloudinary through an unsigned upload preset, and
+> every device sees the same album via QR code — **no backend to run**. Stack: React + TypeScript +
+> Vite, Tailwind CSS and shadcn/ui; optional cross-device sync through a server-side JSONBin key;
+> deploys on Vercel, Cloudflare Pages or Netlify. Live demo:
+> **[demo-snaply.vercel.app](https://demo-snaply.vercel.app)** — setup and configuration notes
+> below are in Italian.
+
 
 ## ✨ Caratteristiche
 
