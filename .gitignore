@@ -165,9 +165,8 @@ dist/
 # Tailwind CSS
 .tailwindcss
 
-# Bun lockfile (keep if using Bun as primary package manager)
-# Uncomment the next line if NOT using Bun:
-# bun.lockb
+# Bun lockfile — questo progetto usa npm (vedi README): package-lock.json e' autoritativo
+bun.lockb
 
 # Package manager lock files (keep one, remove others based on your preference)
 # Uncomment the ones you DON'T use:
