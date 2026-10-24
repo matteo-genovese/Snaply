@@ -376,6 +376,21 @@ VITE_CLOUDINARY_UPLOAD_PRESET="il_tuo_preset_unsigned"
 - Controlla i log di build sulla piattaforma di deploy
 
 
+## 🚀 Deploy self-hosted
+
+La demo su `snaply.matteogenovese.com` non gira su Vercel: è un container nginx con il build statico.
+
+1. push su `main` → la CI (`.github/workflows/image.yml`) costruisce l'immagine e la pubblica su `ghcr.io/matteo-genovese/snaply:latest`;
+2. Watchtower sul server la tira entro 5 minuti e ricrea il container;
+3. lo stack Portainer `snaply` referenzia quell'immagine (stato, log, redeploy manuale);
+4. Nginx Proxy Manager espone `snaply.matteogenovese.com` con certificato Let's Encrypt verso il container `snaply`, sulla rete `public_net`.
+
+Cloud name e upload preset arrivano dalle **variabili del repo** (`VITE_CLOUDINARY_CLOUD_NAME`, `VITE_CLOUDINARY_UPLOAD_PRESET`): sono valori pubblici e finiscono nel bundle. Se mancano, la CI si ferma invece di pubblicare un'immagine con l'upload rotto.
+
+⚠️ Il preset Cloudinary è **unsigned**: chiunque legga il bundle può caricare su quella cloud. Per limitarlo va ristretto lato Cloudinary (upload firmato, oppure formati/dimensione/cartella obbligatori); non si risolve nel codice.
+
+La vecchia demo su Vercel resta pubblicata, ma il riferimento ora è il dominio self-hosted.
+
 ## 🤝 Contribuire
 
 1. Fork il progetto
