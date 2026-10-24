@@ -4,7 +4,7 @@ Una semplice web app per caricare e visualizzare foto e video di eventi. **Deplo
 
 ## 🌟 Demo Live
 
-Prova Snaply in azione: **[demo-snaply.vercel.app](https://demo-snaply.vercel.app)**
+Prova Snaply in azione: **[snaply.matteogenovese.com](https://snaply.matteogenovese.com)**
 >
 > **English** — Snaply is a drop-in photo & video gallery for events. Guests upload from their
 > phone (drag & drop, up to 100 MB) straight to Cloudinary through an unsigned upload preset, and
