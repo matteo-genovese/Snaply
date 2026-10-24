@@ -1,6 +1,6 @@
 # 📸 Snaply
 
-Una semplice web app per caricare e visualizzare foto e video di eventi. **Deploy facile senza backend da gestire!**
+Una semplice web app per caricare e visualizzare foto e video di eventi. **Deploy facile senza backend da gestire**: un clic su Vercel o Netlify per averla online subito, oppure un container tuo se preferisci.
 
 ## 🌟 Demo Live
 
@@ -108,10 +108,23 @@ npm run dev
 ```
 Apri [localhost:8080](http://localhost:8080)
 
-## 🚀 Deploy su Vercel (alternativa)
+## 🚀 Deploy
 
-> La demo pubblica **non** gira su Vercel: è self-hosted, vedi «Deploy self-hosted» più sotto. Questa
-> sezione resta valida se vuoi pubblicare un'istanza tutta tua senza server.
+Due strade, stessa app. Nessuna delle due richiede un backend da gestire.
+
+**1. Online subito, senza server** — Vercel, Cloudflare Pages o Netlify: colleghi il repo, metti due variabili d'ambiente e in un paio di minuti hai un sito tuo, gratis per un evento. È la via più rapida se ti serve solo far caricare foto stasera.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmatteo-genovese%2FSnaply&env=VITE_CLOUDINARY_CLOUD_NAME,VITE_CLOUDINARY_UPLOAD_PRESET&envDescription=Cloudinary%20cloud%20name%20e%20upload%20preset%20%28unsigned%29&project-name=snaply)
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/matteo-genovese/Snaply)
+
+**2. Self-hosted, come la demo** — un container nginx con l'immagine già costruita, dietro il tuo dominio: vedi «Deploy self-hosted». Più lavoro da mettere in piedi, ma il sito resta tuo e non dipende da una piattaforma.
+
+In entrambi i casi servono `VITE_CLOUDINARY_CLOUD_NAME` e `VITE_CLOUDINARY_UPLOAD_PRESET` (Cloudinary → Settings → Upload): senza, la pagina carica ma l'upload non parte.
+
+## ☁️ Deploy senza server: passo per passo
+
+> La demo pubblica è self-hosted, non su Vercel: qui sotto trovi la via più veloce per una tua istanza.
 
 Il progetto è ottimizzato per Vercel che permette di configurare le variabili d'ambiente direttamente nella dashboard prima del deploy.
 
@@ -380,7 +393,7 @@ VITE_CLOUDINARY_UPLOAD_PRESET="il_tuo_preset_unsigned"
 - Controlla i log di build sulla piattaforma di deploy
 
 
-## 🚀 Deploy self-hosted
+## 🐳 Deploy self-hosted (come la demo)
 
 La demo su `snaply.matteogenovese.com` non gira su Vercel: è un container nginx con il build statico.
 
