@@ -1,0 +1,18 @@
+services:
+  snaply:
+    build:
+      context: .
+      args:
+        # Obbligatorie: senza queste il bundle parte con l'upload rotto, quindi
+        # il build fallisce invece di produrre un'immagine che sembra a posto.
+        VITE_CLOUDINARY_CLOUD_NAME: ${VITE_CLOUDINARY_CLOUD_NAME:?serve il cloud name Cloudinary}
+        VITE_CLOUDINARY_UPLOAD_PRESET: ${VITE_CLOUDINARY_UPLOAD_PRESET:?serve l'upload preset Cloudinary}
+    image: snaply:latest
+    container_name: snaply
+    restart: unless-stopped
+    networks:
+      - public_net
+
+networks:
+  public_net:
+    external: true
