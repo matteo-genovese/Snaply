@@ -10,8 +10,9 @@ Prova Snaply in azione: **[snaply.matteogenovese.com](https://snaply.matteogenov
 > phone (drag & drop, up to 100 MB) straight to Cloudinary through an unsigned upload preset, and
 > every device sees the same album via QR code — **no backend to run**. Stack: React + TypeScript +
 > Vite, Tailwind CSS and shadcn/ui; optional cross-device sync through a server-side JSONBin key;
-> deploys on Vercel, Cloudflare Pages or Netlify. Live demo:
-> **[demo-snaply.vercel.app](https://demo-snaply.vercel.app)** — setup and configuration notes
+> deploys as a static build behind nginx (Docker image, see «Deploy self-hosted»), or on
+> Vercel, Cloudflare Pages and Netlify. Live demo:
+> **[snaply.matteogenovese.com](https://snaply.matteogenovese.com)** — setup and configuration notes
 > below are in Italian.
 
 
@@ -107,11 +108,14 @@ npm run dev
 ```
 Apri [localhost:8080](http://localhost:8080)
 
-## 🚀 Deploy su Vercel
+## 🚀 Deploy su Vercel (alternativa)
+
+> La demo pubblica **non** gira su Vercel: è self-hosted, vedi «Deploy self-hosted» più sotto. Questa
+> sezione resta valida se vuoi pubblicare un'istanza tutta tua senza server.
 
 Il progetto è ottimizzato per Vercel che permette di configurare le variabili d'ambiente direttamente nella dashboard prima del deploy.
 
-### 📦 Deploy su Vercel (Raccomandato)
+### 📦 Deploy su Vercel
 
 1. **Push su GitHub**:
 ```bash
